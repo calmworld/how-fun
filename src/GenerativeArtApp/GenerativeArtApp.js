@@ -2,7 +2,7 @@ import React from 'react';
 import GenerativeArt from './GenerativeArt';
 
 function GenerativeArtApp() {
-  const [numOfLines, setNumOfLines] = React.useState('5');
+  const [numOfLines, setNumOfLines] = React.useState(5);
 
   /*
     Accepted values:
@@ -91,6 +91,7 @@ function GenerativeArtApp() {
               <div className="radio-wrapper">
                 <div className="radio-option">
                   <input 
+                    id="shape-circles"
                     type="radio" 
                     name='shapes'
                     value='circles'
@@ -99,12 +100,13 @@ function GenerativeArtApp() {
                     setShape(event.target.value)
                   }}
                   />
-                  <label>
+                  <label htmlFor='shape-circles'>
                     Circles
                   </label>
                 </div>
                 <div className="radio-option">
                   <input 
+                    id="shape-polygons"
                     type="radio"
                     name='shapes'
                     value='polygons'
@@ -113,7 +115,7 @@ function GenerativeArtApp() {
                     setShape(event.target.value)
                   }}
                 />
-                  <label>
+                  <label htmlFor='shape-polygons'>
                     Polygons
                   </label>
                 </div>
