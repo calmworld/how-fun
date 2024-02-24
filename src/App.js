@@ -1,10 +1,10 @@
 import React from 'react';
-import GenerativeArtApp from './GenerativeArtApp/GenerativeArtApp';
+import ColorGradiant from './ColorGradiant/ColorGradiant';
 
 function App() {
   return (
     <div className="app">
-      <GenerativeArtApp />
+      <ColorGradiant />
     </div>
   )
 }
