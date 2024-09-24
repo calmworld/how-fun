@@ -1,16 +1,13 @@
 import React from 'react';
-import Toggle from './Toggle/Toggle';
+
+import Toggle from './Toggle';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
 
-  console.log('isDarkMode:', isDarkMode);
-
   return (
-    <div>
-      <h1>Playing with React Application</h1>
-      <div
-      className="wrapper"
+    <div
+      className="main-wrapper"
       style={{
         // NOTE: This is a just-for-fun mini demo, not a
         // full-featured Dark Mode implementation!
@@ -24,8 +21,7 @@ function App() {
         handleToggle={setIsDarkMode}
       />
     </div>
-    </div>
-  )
+  );
 }
 
 export default App;
