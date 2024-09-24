@@ -1,38 +1,24 @@
 import React from 'react';
-import ColorGradiant from './ColorGradiant/ColorGradiant';
 import './App.css';
-import { VisuallyHidden } from './VisuallyHidden';
-import StickerPad from './StickerPad/StickerPad';
+import BigCoin from './BigCoin/BigCoin';
 
-function Friend({ name, isOnline }) {
-  return (
-    <li className="friend">
-      {isOnline && <div className="green-dot" />}
-      {name}
-      {!isOnline && <VisuallyHidden>(Offline)</VisuallyHidden>}
-      {isOnline && <VisuallyHidden>(Online)</VisuallyHidden>}
-    </li>
-  );
-}
 
 function App() {
+  const [numOfCoins, setNumOfCoins] = React.useState(0);
   return (
-    <div className="app">
-      <ColorGradiant />
-      {/* <div>
-        <ul className="friend-list">
-          <Friend name="Andrew" isOnline={false} />
-          <Friend name="Beatrice" isOnline={true} />
-          <Friend name="Chen" isOnline={true} />
-        </ul>
-      </div> */}
-      <div>
-        <h1>Sticker Pad</h1>
-        <p>Click on the stickers to add them to the canvas!</p>
-        <StickerPad />
-      </div>
+    <div className="wrapper">
+      <main>
+        <BigCoin 
+          numOfCoins={numOfCoins}
+          setNumOfCoins={setNumOfCoins}
+        />
+      </main>
+      <footer>
+        Your coin balance:
+        <strong>{numOfCoins}</strong>
+      </footer>
     </div>
-  )
+  );
 }
 
 export default App;
