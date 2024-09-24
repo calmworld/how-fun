@@ -1,22 +1,34 @@
 import React from 'react';
-import './App.css';
-import BigCoin from './BigCoin/BigCoin';
 
+import AddNewItemForm from './AddNewItemForm/AddNewItemForm';
 
 function App() {
-  const [numOfCoins, setNumOfCoins] = React.useState(0);
+  const [items, setItems] = React.useState([]);
+  
+  function handleAddItem(label) {
+    const newItem = {
+      label,
+      id: Math.random(),
+    };
+
+    const nextItems = [...items, newItem];
+    setItems(nextItems);
+  }
+
+  console.log(items);
+
   return (
     <div className="wrapper">
-      <main>
-        <BigCoin 
-          numOfCoins={numOfCoins}
-          setNumOfCoins={setNumOfCoins}
-        />
-      </main>
-      <footer>
-        Your coin balance:
-        <strong>{numOfCoins}</strong>
-      </footer>
+      <div className="list-wrapper">
+        <ol className="shopping-list">
+          {items.map(({ id, label }) => (
+            <li key={id}>{label}</li>
+          ))}
+        </ol>
+      </div>
+      <AddNewItemForm
+        onAddItem={handleAddItem}
+      />
     </div>
   );
 }
